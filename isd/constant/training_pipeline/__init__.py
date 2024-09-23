@@ -8,9 +8,9 @@ DATA_INGESTION_DIR_NAME: str = "data_ingestion"
 
 DATA_INGESTION_FEATURE_STORE_DIR: str = "feature_store"
 
-DATA_INGESTION_S3_DATA_NAME: str = "isd_data_mini.zip"
+DATA_INGESTION_S3_DATA_NAME: str = "file.zip"
 
-DATA_BUCKET_NAME = "isd-dataset"
+DATA_BUCKET_NAME = "isd-complete"
 
 
 
