@@ -116,7 +116,9 @@ class TrainPipeline:
     def run_pipeline(self) -> None:
         try:
             data_ingestion_artifact = self.start_data_ingestion()
-
+            data_validation_artifact = self.start_data_validation(
+                data_ingestion_artifact=data_ingestion_artifact
+            )
 
         except Exception as e:
             raise isdException(e, sys)
