@@ -46,7 +46,7 @@ class ModelTrainerConfig:
         training_pipeline_config.artifacts_dir, MODEL_TRAINER_DIR_NAME
     )
 
-    weight_name = MODEL_TRAINER_PRETRAINED_WEIGHT_URL
+    model_name = MODEL_TRAINER_NAME
 
     no_epochs = MODEL_TRAINER_NO_EPOCHS
 

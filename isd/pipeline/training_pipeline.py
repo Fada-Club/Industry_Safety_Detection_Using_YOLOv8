@@ -119,6 +119,13 @@ class TrainPipeline:
             data_validation_artifact = self.start_data_validation(
                 data_ingestion_artifact=data_ingestion_artifact
             )
+            if data_validation_artifact.validation_status == True:
+                model_trainer_artifact = self.start_model_trainer()
+                # model_pusher_artifact = self.start_model_pusher(model_trainer_artifact=model_trainer_artifact,s3=self.s3_operations)
+            
+            else:
+                raise Exception("Your data is not in correct format")
+
 
         except Exception as e:
             raise isdException(e, sys)
