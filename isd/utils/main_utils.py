@@ -19,7 +19,7 @@ def read_yaml_file(file_path: str) -> dict:
 
 def decodeImage(imgstring, fileName):
     imgdata = base64.b64decode(imgstring)
-    with open("./data/" + fileName, 'wb') as f:
+    with open(fileName, 'wb') as f:  # Remove './data/' here
         f.write(imgdata)
         f.close()
 

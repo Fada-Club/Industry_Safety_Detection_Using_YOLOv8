@@ -48,7 +48,7 @@ class ModelTrainer:
             # Start training the YOLOv8 model with correct arguments
             model.train(
                 data=data_yaml_path,
-                imgsz=224,
+                imgsz=640,
                 epochs=self.model_trainer_config.no_epochs,
                 batch=self.model_trainer_config.batch_size,
                 project=self.model_trainer_config.model_trainer_dir,
@@ -70,7 +70,7 @@ class ModelTrainer:
             logging.info(f"Copied best.pt to {model_dir}")
 
             # Remove `yolov8x.pt` if downloaded inside the `isd_dataset` folder
-            yolov8_weights_path = os.path.join(unzip_dir, "yolov8x.pt")
+            yolov8_weights_path = "yolov8x.pt"
             if os.path.exists(yolov8_weights_path):
                 os.remove(yolov8_weights_path)
                 logging.info(f"Removed {yolov8_weights_path}")
