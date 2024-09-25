@@ -48,7 +48,7 @@ class ModelTrainer:
             # Start training the YOLOv8 model with correct arguments
             model.train(
                 data=data_yaml_path,
-                imgsz=640,
+                imgsz=224,
                 epochs=self.model_trainer_config.no_epochs,
                 batch=self.model_trainer_config.batch_size,
                 project=self.model_trainer_config.model_trainer_dir,

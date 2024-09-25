@@ -35,7 +35,7 @@ MODEL_TRAINER_NAME: str = "yolov8x.pt"
 
 MODEL_TRAINER_NO_EPOCHS: int = 1
 
-MODEL_TRAINER_BATCH_SIZE: int = 4
+MODEL_TRAINER_BATCH_SIZE: int = 8
 
 
 
@@ -43,5 +43,5 @@ MODEL_TRAINER_BATCH_SIZE: int = 4
 """
 MODEL PUSHER related constant start with MODEL_PUSHER var name
 """
-MODEL_BUCKET_NAME = "isd-dataset"
+MODEL_BUCKET_NAME = "isd-complete"
 S3_MODEL_NAME = "best.pt"
