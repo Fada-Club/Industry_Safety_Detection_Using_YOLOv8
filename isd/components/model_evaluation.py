@@ -8,7 +8,6 @@ from ultralytics import YOLO
 from isd.logger import logging
 from isd.exception import isdException
 from isd.constant.training_pipeline import *
-from isd.utils.main_utils import *
 from isd.entity.config_entity import ModelEvaluationConfig
 from isd.entity.artifacts_entity import ModelEvaluationArtifact, ModelTrainerArtifact, DataIngestionArtifact
 
@@ -93,12 +92,11 @@ class ModelEvaluation:
                 evaluation_metrics_file_path = self.model_evaluation_config.metrics_file_path
                 evaluation_metrics_dir = os.path.dirname(evaluation_metrics_file_path)
                 os.makedirs(evaluation_metrics_dir, exist_ok=True)
-                destination_path = "metrics.json"
 
                 with open(evaluation_metrics_file_path, 'w') as f:
                     json.dump(metrics_serializable, f, indent=4)
 
-                with open(destination_path, 'w') as f:
+                with open("metrics.json", 'w') as f:
                     json.dump(metrics_serializable, f, indent=4)
                 
                 logging.info(f"Metrics saved to {evaluation_metrics_file_path}")

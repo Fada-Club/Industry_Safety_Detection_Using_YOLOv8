@@ -137,15 +137,35 @@ class TrainPipeline:
 
     def run_pipeline(self) -> None:
         try:
+            print(f"*******************")
+            print(f">>>>>> stage DATA INGESTION started <<<<<<")
             data_ingestion_artifact = self.start_data_ingestion()
+            print(f">>>>>> stage DATA INGESTION completed <<<<<<\n\nx==========x")
+
+            print(f"*******************")
+            print(f">>>>>> stage DATA VALIDATION started <<<<<<")            
             data_validation_artifact = self.start_data_validation(
                 data_ingestion_artifact=data_ingestion_artifact
             )
+            print(f">>>>>> stage DATA VALIDATION completed <<<<<<\n\nx==========x")
+
+
             if data_validation_artifact.validation_status == True:
+                print(f"*******************")
+                print(f">>>>>> stage MODEL TRAINING started <<<<<<")    
                 model_trainer_artifact = self.start_model_trainer()
+                print(f">>>>>> stage MODEL TRAINING completed <<<<<<\n\nx==========x")
+
+                print(f"*******************")
+                print(f">>>>>> stage MODEL EVALUATION started <<<<<<")   
                 model_evaluation_artifact = self.start_model_evaluation(model_trainer_artifact=model_trainer_artifact,data_ingestion_artifact=data_ingestion_artifact)
+                print(f">>>>>> stage MODEL EVALUATION completed <<<<<<\n\nx==========x")
+                
+                print(f"*******************")
+                print(f">>>>>> stage MODEL PUSHER started <<<<<<") 
                 model_pusher_artifact = self.start_model_pusher(model_trainer_artifact=model_trainer_artifact,s3=self.s3_operations)
-            
+                print(f">>>>>> stage MODEL PUSHER completed <<<<<<\n\nx==========x")
+
             else:
                 raise Exception("Your data is not in correct format")
 
