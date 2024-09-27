@@ -26,3 +26,10 @@ class ModelTrainerArtifact:
 class ModelPusherArtifacts:
     bucket_name: str
     s3_model_path: str
+
+
+
+@dataclass
+class ModelEvaluationArtifact:
+    evaluated_model_metrics: dict
+    evaluation_metrics_file_path: str

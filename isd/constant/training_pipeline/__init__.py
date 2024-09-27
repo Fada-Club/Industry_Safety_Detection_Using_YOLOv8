@@ -37,6 +37,8 @@ MODEL_TRAINER_NO_EPOCHS: int = 1
 
 MODEL_TRAINER_BATCH_SIZE: int = 8
 
+MODEL_TRAINER_IMAGE_SIZE: int = 224
+
 
 
 
@@ -45,3 +47,18 @@ MODEL PUSHER related constant start with MODEL_PUSHER var name
 """
 MODEL_BUCKET_NAME = "isd-complete"
 S3_MODEL_NAME = "best.pt"
+
+
+"""
+Model Evaluation related constant start with MODEL_EVALUATION var name
+"""
+
+MODEL_EVALUATION_DIR_NAME: str = "model_evaluation"
+
+MODEL_EVALUATION_METRICS_FILE_NAME: str = "metrics.json"
+
+MODEL_EVALUATION_BATCH_SIZE: int = 8
+
+MODEL_EVALUATION_IMAGE_SIZE: int = 224
+
+MODEL_EVALUATION_DATA_YAML = "data.yaml"

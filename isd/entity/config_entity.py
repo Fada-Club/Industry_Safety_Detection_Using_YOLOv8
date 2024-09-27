@@ -52,9 +52,27 @@ class ModelTrainerConfig:
 
     batch_size = MODEL_TRAINER_BATCH_SIZE
 
+    image_size = MODEL_TRAINER_IMAGE_SIZE
+
 
 
 @dataclass
 class ModelPusherConfig:
     MODEL_BUCKET_NAME: str = MODEL_BUCKET_NAME
     S3_MODEL_KEY_PATH: str = S3_MODEL_NAME
+
+
+
+@dataclass
+class ModelEvaluationConfig:
+    model_evaluation_dir: str = os.path.join(
+        training_pipeline_config.artifacts_dir, MODEL_EVALUATION_DIR_NAME
+    )
+
+    metrics_file_path: str = os.path.join(model_evaluation_dir, MODEL_EVALUATION_METRICS_FILE_NAME)
+
+    batch_size: int = MODEL_EVALUATION_BATCH_SIZE
+
+    image_size: int = MODEL_EVALUATION_IMAGE_SIZE
+
+    data_yaml_path: str = MODEL_EVALUATION_DATA_YAML

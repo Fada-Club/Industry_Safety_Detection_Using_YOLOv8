@@ -48,7 +48,7 @@ class ModelTrainer:
             # Start training the YOLOv8 model with correct arguments
             model.train(
                 data=data_yaml_path,
-                imgsz=224,
+                imgsz=self.model_trainer_config.image_size,
                 epochs=self.model_trainer_config.no_epochs,
                 batch=self.model_trainer_config.batch_size,
                 project=self.model_trainer_config.model_trainer_dir,
@@ -76,8 +76,8 @@ class ModelTrainer:
                 logging.info(f"Removed {yolov8_weights_path}")
 
             # Remove the entire 'isd_dataset' folder
-            shutil.rmtree(unzip_dir)
-            logging.info(f"Removed the {unzip_dir} directory")
+            # shutil.rmtree(unzip_dir)
+            # logging.info(f"Removed the {unzip_dir} directory")
 
             # Create the ModelTrainerArtifact
             model_trainer_artifact = ModelTrainerArtifact(
