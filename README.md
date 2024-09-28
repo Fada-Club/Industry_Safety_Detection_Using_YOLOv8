@@ -97,6 +97,36 @@ export MLFLOW_TRACKING_USERNAME=kdot313
 export MLFLOW_TRACKING_PASSWORD=d91b06fbd9b355c4da3eb05a4b538f21602d1421
 ```
 
+### Step 5 - Create IAM user with following Permissions Enabled
+
+* **AmazonEC2ContainerRegistryFullAccess**
+* **AmazonEC2FullAccess**
+
+
+### Step 6 - Configure your AWS
+```bash
+aws configure
+```
+
+### Step 7 - Enter your AWS Credentials of IAM User
+```bash
+AWS_SECRET_ACCESS_KEY = ""
+AWS_ACCESS_KEY_ID = ""
+AWS_REGION = "us-east-1"
+AWS_FOLDER = Press Enter and move on
+```
+
+### Step 8 - Prepare your Dataset zip file named isd_dataset.zip
+Your Zip file should contain following folders and files
+
+
+### Step 8 - Upload the Dataset zip file in your S3 Bucket
+```bash
+AWS_SECRET_ACCESS_KEY = ""
+AWS_ACCESS_KEY_ID = ""
+AWS_REGION = "us-east-1"
+AWS_FOLDER = Press Enter and move on
+```
 
 aws s3 cp path/to/your/file.zip s3://your-bucket-name/file.zip
 
