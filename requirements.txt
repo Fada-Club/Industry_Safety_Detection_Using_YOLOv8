@@ -1,8 +1,8 @@
 # Usage: pip install -r requirements.txt
 
-dill==0.3.5.1
-from-root==1.0.2
-notebook==7.0.0a7
+dill
+from-root
+notebook
 boto3
 mypy-boto3-s3
 flask-cors
@@ -14,23 +14,23 @@ ensure
 # Usage: pip install -r requirements.txt
 
 # Base ----------------------------------------
-matplotlib>=3.2.2
-numpy>=1.18.5,<1.24.0
-opencv-python>=4.1.1
-Pillow>=7.1.2
-PyYAML>=5.3.1
-requests>=2.23.0
-scipy>=1.4.1
-tqdm>=4.41.0
-protobuf<4.21.3
+matplotlib
+numpy
+opencv-python
+Pillow
+PyYAML
+requests
+scipy
+tqdm
+protobuf
 
 # Logging -------------------------------------
-tensorboard>=2.4.1
+tensorboard
 # wandb
 
 # Plotting ------------------------------------
-pandas>=1.1.4
-seaborn>=0.11.0
+pandas
+seaborn
 
 # Export --------------------------------------
 # coremltools>=4.1  # CoreML export
