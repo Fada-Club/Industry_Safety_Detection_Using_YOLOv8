@@ -116,9 +116,29 @@ AWS_REGION = "us-east-1"
 AWS_FOLDER = Press Enter and move on
 ```
 
-### Step 8 - Prepare your Dataset zip file named isd_dataset.zip
-Your Zip file should contain following folders and files
+### Step 8 - Prepare your Dataset zip file named isd_data.zip
+Your Zip file should contain following folders and files in this order:
+```bash
+isd_data.zip
+│
+├── train
+│   ├── images
+│   └── labels
+│
+├── test
+│   ├── images
+│   └── labels
+│
+├── valid
+│   ├── images
+│   └── labels
+│
+└── data.yaml
 
+```
+
+* **Ensure that the train, test, and valid directories contain their respective images and labels subfolders.**
+* **Update the data.yaml file with the correct paths for train, test, and valid directories based on your system's file paths.**
 
 ### Step 8 - Upload the Dataset zip file in your S3 Bucket
 ```bash
