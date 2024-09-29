@@ -90,7 +90,7 @@ pip install -r requirements.txt
 
 ### Step 4 - Set Environment variables for MLFlow
 ```bash
-export MLFLOW_TRACKING_URI=ttps://dagshub.com/kdot313/Industry.mlflow
+export MLFLOW_TRACKING_URI=https://dagshub.com/kdot313/Industry.mlflow
 
 export MLFLOW_TRACKING_USERNAME=kdot313
 
@@ -139,15 +139,81 @@ isd_data.zip
 
 * **Ensure that the train, test, and valid directories contain their respective images and labels subfolders.**
 * **Update the data.yaml file with the correct paths for train, test, and valid directories based on your system's file paths.**
+* **Here is my Datset: [LINK](https://drive.google.com/file/d/1qXJltpxy5qAEpQo1BCfj7XW2ZcnWpkrz/view?usp=sharing)**
 
-### Step 8 - Upload the Dataset zip file in your S3 Bucket
+### Step 9 - Upload the Dataset zip file in your S3 Bucket
 ```bash
-AWS_SECRET_ACCESS_KEY = ""
-AWS_ACCESS_KEY_ID = ""
-AWS_REGION = "us-east-1"
-AWS_FOLDER = Press Enter and move on
+aws s3 cp path/to/your/isd_data.zip s3://your-bucket-name/file.zip
 ```
 
-aws s3 cp path/to/your/file.zip s3://your-bucket-name/file.zip
+### (Optional) Step 10 - Add best.pt model in model folder
+Follow this Step if you don't want to train model for 100 epochs as It will take a long time to complete training. I had already trained model named as **best.pt** for 100 epochs.
 
-aws s3 cp /workspaces/Industry/best.pt s3://isd-complete/best.pt
+As best.pt is very large in size(130 MB), So I cannot push it into github repository directly. So, you had to update it manually in and you had to create a **model folder** manually and insert the best.pt file in it.
+
+You can download the **best.pt** from [here](https://drive.google.com/file/d/13bY4nDUeUfTG4jxPVpT6Bok0DHQaa_qn/view?usp=sharing)
+
+### Step 11 - Upload the best.pt model in your S3 Bucket
+```bash
+aws s3 cp path/to/your/best.pt s3://your-bucket-name/best.pt
+```
+
+### Step 12 - Run the application server
+```bash
+python app.py
+```
+
+### Step 13 - Prediction application
+```bash
+http://localhost:8080/
+
+```
+
+## Mlflow dagshub connection Keys
+
+```bash
+MLFLOW_TRACKING_URI=https://dagshub.com/kdot313/Industry.mlflow \
+MLFLOW_TRACKING_USERNAME=kdot313 \
+MLFLOW_TRACKING_PASSWORD=d91b06fbd9b355c4da3eb05a4b538f21602d1421 \
+python script.py
+```
+
+## Run Using Docker Image
+To run the following commands, ensure you have the docker installed on your system.
+### Step 1 - Pull the Docker Image
+```
+docker pull jatin122002/industry_safety:latest
+```
+### Docker Container<a id='docker-container'></a>
+Now once you have the docker image from the Docker Hub, you can now run the following commands to test and deploy the container to the web.
+
+* Run a Docker Container<a id='run-docker-container'></a><br>
+Check all the available images:
+```bash
+docker images
+```
+Check if the container is running:
+```bash
+docker ps
+```
+### Step 2 - Use the following command to run a docker container on your system:
+```bash
+docker run -p 8080:8080 industry_safety
+```
+If the container is running, then the API services will be available on all the network interfaces.
+### Step 3 - To access the API service, type following in your local browser:
+```bash
+localhost:8080
+```
+
+### NOTE: If you want to build a docker images of your project, run the following command
+```bash
+docker build -t <Docker_Image_Name> .
+```
+
+## Prediction Outputs
+![image](assets/Output1.png)
+![image](assets/Output2.png)
+
+## AWS Deployment Steps
+
