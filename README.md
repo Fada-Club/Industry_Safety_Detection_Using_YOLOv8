@@ -74,7 +74,7 @@ The Code is written in Python 3.8.19. If you don't have Python installed you can
 
 ### Step 1: Clone the repository
 ```bash
-git clone https://github.com/kdot313/Industry.git
+git clone https://github.com/jatin-12-2002/Industry_Safety_Detection_Using_YOLOv8
 ```
 ### Step 2- Create a conda environment after opening the repository
 ```bash
@@ -90,15 +90,16 @@ pip install -r requirements.txt
 
 ### Step 4 - Set Environment variables for MLFlow
 ```bash
-export MLFLOW_TRACKING_URI=https://dagshub.com/kdot313/Industry.mlflow
+export MLFLOW_TRACKING_URI=https://dagshub.com/jatin-12-2002/Industry_Safety_Detection_Using_YOLOv8.mlflow
 
-export MLFLOW_TRACKING_USERNAME=kdot313
+export MLFLOW_TRACKING_USERNAME=jatin-12-2002
 
-export MLFLOW_TRACKING_PASSWORD=d91b06fbd9b355c4da3eb05a4b538f21602d1421
+export MLFLOW_TRACKING_PASSWORD=e5ca3cce5e86ab8f8fc147bab0c9a86f7cd05955
 ```
 
 ### Step 5 - Create IAM user with following Permissions Enabled
 
+* **AdministratorAccess**
 * **AmazonEC2ContainerRegistryFullAccess**
 * **AmazonEC2FullAccess**
 
@@ -307,9 +308,9 @@ Public_Address:8080
 ```
 
 ## Conclusion 
-1. The YOLOv8 model effectively detects 10 safety-related classes in real-time, achieving impressive mAP scores of 88.90% (mAP_50) and 65.30% (mAP_50_95), significantly improving workplace safety on industrial sites.
+1. The **YOLOv8** model effectively detects 10 safety-related classes in real-time, achieving impressive mAP scores of **88.90% (mAP_50)** and **65.30% (mAP_50_95)**, significantly improving workplace safety on industrial sites.
 2. The automated MLOps pipeline streamlines the workflow from data ingestion to model evaluation using MLflow, ensuring high-quality model performance and efficient version control.
-3. The integration of CI/CD pipelines with Docker and AWS infrastructure enables seamless deployment, continuous integration, and rapid updates, allowing for efficient scalability.
+3. The integration of **CI/CD pipelines** with **Docker** and **AWS** infrastructure enables seamless deployment, continuous integration, and rapid updates, allowing for efficient scalability.
 4. This solution provides a robust and scalable system for industry safety detection, with potential for future enhancements such as real-time alerting and incorporating more complex detection models.
 5. The project sets a solid foundation for ongoing improvements, demonstrating that real-time detection can significantly contribute to reducing workplace accidents in industrial environments.
 
